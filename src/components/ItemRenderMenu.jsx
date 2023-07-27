@@ -17,7 +17,7 @@ function ItemRenderMenu() {
             handleTabClick("All");
           }}
           className={`cursor-pointer py-2 w-16 border-[#f2545f] text-center ${
-            selected === "All" ? "border-b-2" : ""
+            selected === "All" ? "border-b-[3px]" : ""
           }`}
         >
           All
@@ -27,7 +27,7 @@ function ItemRenderMenu() {
             handleTabClick("Board");
           }}
           className={`cursor-pointer py-2 w-16 border-[#f2545f] text-center ${
-            selected === "Board" ? "border-b-2" : ""
+            selected === "Board" ? "border-b-[3px]" : ""
           }`}
         >
           Board
@@ -37,7 +37,7 @@ function ItemRenderMenu() {
             handleTabClick("Graph");
           }}
           className={`cursor-pointer py-2 w-16 border-[#f2545f] text-center ${
-            selected === "Graph" ? "border-b-2" : ""
+            selected === "Graph" ? "border-b-[3px]" : ""
           }`}
         >
           Graph
@@ -47,7 +47,7 @@ function ItemRenderMenu() {
             handleTabClick("Recent");
           }}
           className={`cursor-pointer py-2 w-16 border-[#f2545f] text-center ${
-            selected === "Recent" ? "border-b-2" : ""
+            selected === "Recent" ? "border-b-[3px]" : ""
           }`}
         >
           Recent
