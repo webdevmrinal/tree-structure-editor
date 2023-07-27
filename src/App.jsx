@@ -10,7 +10,7 @@ function App() {
     <>
       <Header isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} />
       <ItemRenderMenu />
-      <section className="w-screen flex">
+      <section className="max-w-screen-xl flex">
         <Drawer isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} />
         <Editor />
       </section>
