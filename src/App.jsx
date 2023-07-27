@@ -1,10 +1,12 @@
 import Header from "./components/Header";
+import ItemRenderMenu from './components/ItemRenderMenu';
 
 function App() {
   return (
-    <div>
+    <>
       <Header />
-    </div>
+      <ItemRenderMenu/>
+    </>
   );
 }
 
