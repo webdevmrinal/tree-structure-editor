@@ -42,7 +42,7 @@ function Header({isDrawerOpen, setIsDrawerOpen}) {
             </span>
           </div>
           <HiOutlineBell size={30} />
-          <CustomAvatar isNew={true} isOnline={false} name={"F L"} />
+          <CustomAvatar isNew={true} isOnline={true} name={"F L"} />
         </div>
       </div>
     </div>

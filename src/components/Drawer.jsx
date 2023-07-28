@@ -40,6 +40,7 @@ function Drawer({ isDrawerOpen, setIsDrawerOpen }) {
               node={node}
               level={0}
               setSelectedNodeId={setSelectedNodeId}
+              selectedNodeId={selectedNodeId}
             />
           ))}
         </div>
