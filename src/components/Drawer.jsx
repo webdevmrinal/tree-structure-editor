@@ -7,18 +7,30 @@ import TreeNode from "./TreeNode";
 function Drawer({ isDrawerOpen, setIsDrawerOpen }) {
   const [selectedNodeId, setSelectedNodeId] = useState(null);
   const tree = treeDataStructure;
+
   const handleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
+
+//   const isNodeSelected = (node) => {
+//     if (node.id === selectedNodeId) {
+//       return true;
+//     }
+//     if (node.children) {
+//       return node.children.some(isNodeSelected);
+//     }
+//     return false;
+//   };
+
   return (
     <div
       className={
         isDrawerOpen
-          ? "h-[calc(100vh-125px)] flex-1 md:flex-[.35] lg:flex-[.20] bg-gray-100 pr-2 lg:px-"
+          ? "h-[calc(100vh-125px)] flex-1 md:flex-[.35] lg:flex-[.20] bg-gray-50 pr-2 lg:px-"
           : "hidden"
       }
     >
-      <div className="w-72 h-[calc(100vh-125px)] overflow-scroll">
+      <div className="w-80 md:w-96 h-[calc(100vh-125px)] overflow-scroll">
         <div className="px-4 py-4 lg:px-0 lg:pl-4 flex justify-between items-center">
           <div className="uppercase text-gray-400 font-bold">{"dfin"}</div>
           <div className="flex gap-2 lg:gap-4">
@@ -33,7 +45,7 @@ function Drawer({ isDrawerOpen, setIsDrawerOpen }) {
             </button>
           </div>
         </div>
-        <div className="pl-2">
+        <div className={"pl-2"}>
           {tree.map((node) => (
             <TreeNode
               key={node.id}

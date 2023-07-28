@@ -1,16 +1,16 @@
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 const treeData = [
   {
     id: uuidv4(),
     type: "container",
-    isOpen:true,
+    isOpen: true,
     name: "collection1",
     children: [
       {
         id: uuidv4(),
         type: "container",
-        isOpen:true,
+        isOpen: true,
         name: "collection1.1",
         children: [
           {
@@ -37,6 +37,19 @@ const treeData = [
             type: "leaf",
             content: "Some other content",
           },
+          {
+            id: uuidv4(),
+            name: "collection1.1.1.1",
+            type: "container",
+            children: [
+              {
+                id: uuidv4(),
+                name: "Item Editor",
+                type: "leaf",
+                content: "Some other content",
+              },
+            ],
+          },
         ],
       },
     ],
@@ -44,7 +57,7 @@ const treeData = [
   {
     id: uuidv4(),
     type: "container",
-    isOpen:false,
+    isOpen: false,
     name: "collection2",
     children: [
       {
@@ -53,31 +66,36 @@ const treeData = [
         type: "leaf",
         content: "Even more content",
       },
-      { id: uuidv4(), name: "collection2.2", type: "leaf", content: "And some more" },
+      {
+        id: uuidv4(),
+        name: "collection2.2",
+        type: "leaf",
+        content: "And some more",
+      },
     ],
   },
   {
     id: uuidv4(),
     type: "container",
-    isOpen:false,
+    isOpen: false,
     name: "collection3",
   },
   {
     id: uuidv4(),
     type: "container",
-    isOpen:false,
+    isOpen: false,
     name: "collection4",
   },
   {
     id: uuidv4(),
     type: "container",
-    isOpen:false,
+    isOpen: false,
     name: "collection5",
   },
   {
     id: uuidv4(),
     type: "container",
-    isOpen:false,
+    isOpen: false,
     name: "collection6",
   },
 ];

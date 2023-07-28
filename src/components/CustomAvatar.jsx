@@ -3,7 +3,7 @@ import Avatar from "react-avatar";
 
 function CustomAvatar({ isOnline, isNew, name}) {
   return (
-    <div className={"relative cursor-pointer"}>
+    <div className={"relative cursor-pointer select-none"}>
       <Avatar className="text-sm" name={name} size="50" round />
       <div className={isNew?"absolute top-0 uppercase text-xs rounded-3xl text-white font-bold bg-[#f2545f] px-1 border-4 border-white translate-x-8 -translate-y-1":"hidden"}>
         {"new"}
