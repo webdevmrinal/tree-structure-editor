@@ -52,6 +52,51 @@ const treeData = [
           },
         ],
       },
+      {
+        id: uuidv4(),
+        type: "container",
+        isOpen: true,
+        name: "collection1.1",
+        children: [
+          {
+            id: uuidv4(),
+            name: "Content Page",
+            type: "leaf",
+            content: "Some content",
+          },
+          {
+            id: uuidv4(),
+            name: "Quiz",
+            type: "leaf",
+            content: "Some other content",
+          },
+          {
+            id: uuidv4(),
+            name: "Videos",
+            type: "leaf",
+            content: "Some other content",
+          },
+          {
+            id: uuidv4(),
+            name: "WYSIWYG Editor",
+            type: "leaf",
+            content: "Some other content",
+          },
+          {
+            id: uuidv4(),
+            name: "collection1.1.1.1",
+            type: "container",
+            children: [
+              {
+                id: uuidv4(),
+                name: "Item Editor",
+                type: "leaf",
+                content: "Some other content",
+              },
+            ],
+          },
+        ],
+      },
     ],
   },
   {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { HiChevronDoubleLeft, HiPlus } from "react-icons/hi";
 import { BiExpandAlt } from "react-icons/bi";
 import treeDataStructure from "../utils/treeDataStructure";
@@ -12,16 +12,6 @@ function Drawer({ isDrawerOpen, setIsDrawerOpen }) {
     setIsDrawerOpen(!isDrawerOpen);
   };
 
-//   const isNodeSelected = (node) => {
-//     if (node.id === selectedNodeId) {
-//       return true;
-//     }
-//     if (node.children) {
-//       return node.children.some(isNodeSelected);
-//     }
-//     return false;
-//   };
-
   return (
     <div
       className={
@@ -30,7 +20,7 @@ function Drawer({ isDrawerOpen, setIsDrawerOpen }) {
           : "hidden"
       }
     >
-      <div className="w-80 md:w-96 h-[calc(100vh-125px)] overflow-scroll">
+      <div className="w-80 md:w-96 h-[calc(100vh-125px)] overflow-scroll scrollbar-thin scrollbar-track-gray-200/20 scrollbar-thumb-gray-200">
         <div className="px-4 py-4 lg:px-0 lg:pl-4 flex justify-between items-center">
           <div className="uppercase text-gray-400 font-bold">{"dfin"}</div>
           <div className="flex gap-2 lg:gap-4">

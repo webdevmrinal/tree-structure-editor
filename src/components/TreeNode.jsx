@@ -1,6 +1,6 @@
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css"; // optional
-import React, { useState } from "react";
+import { useState } from "react";
 import { BiSolidAddToQueue } from "react-icons/bi";
 import {
   HiChevronDown,
@@ -35,7 +35,7 @@ function TreeNode({ node, level, selectedNodeId, setSelectedNodeId }) {
     >
       <div
         style={{
-          paddingLeft: `${!level ? 0 : 1}rem`,
+          textIndent: `${!level ? 0 : level*.75}rem`,
           paddingRight: "0px",
           width: "100%",
         }}
@@ -52,7 +52,7 @@ function TreeNode({ node, level, selectedNodeId, setSelectedNodeId }) {
               className={
                 node.type === "container"
                   ? "font-semibold w-full cursor-pointer"
-                  : "w-full cursor-pointer"
+                  : "w-full cursor-pointer translate-x-1"
               }
               onClick={
                 node.type === "container" ? handleToggle : handleNodeSelect
@@ -60,12 +60,12 @@ function TreeNode({ node, level, selectedNodeId, setSelectedNodeId }) {
             >
               {node.type === "container" ? (
                 isOpen ? (
-                  <HiChevronDown className="inline-block" />
+                  <HiChevronDown style={{transform:`translateX(${!level ? 0 : level*.75}rem)`}} size={10} className="inline-block" />
                 ) : (
-                  <HiChevronRight className="inline-block" />
+                  <HiChevronRight style={{transform:`translateX(${!level ? 0 : level*.75}rem)`}} size={10} className="inline-block" />
                 )
               ) : null}
-              <div className="select-none inline-block">{node.name}</div>
+              <div className="select-none inline-block">{(node.name)}</div>
             </div>
             {node.type === "container" && childIsSelected ? (
               <div className="flex gap-3">
