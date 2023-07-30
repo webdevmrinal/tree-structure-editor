@@ -1,8 +1,7 @@
 import { FormCheck } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import SwitchExample from "./SwitchExample";
 
-function UserOptionsDropdown({setUserDropdownVisible}) {
+function UserOptionsDropdown({ setUserDropdownVisible }) {
   return (
     <div className="absolute right-0 translate-y-2 w-64 bg-white border py-2 shadow-md z-[9999]">
       <div className="cursor-pointer px-6 py-2 flex justify-between">
@@ -11,7 +10,9 @@ function UserOptionsDropdown({setUserDropdownVisible}) {
           <FormCheck
             id="switchEnabled"
             type="switch"
-            onChange={()=>{setUserDropdownVisible(true)}}
+            onChange={() => {
+              setUserDropdownVisible(true);
+            }}
           />
         </span>
       </div>
