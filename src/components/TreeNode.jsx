@@ -16,6 +16,7 @@ function TreeNode({
   selectedNodeId,
   setSelectedNodeId,
   addLeafToNode,
+  setSelectedNode,
 }) {
   const [isOpen, setIsOpen] = useState(node.isOpen);
 
@@ -24,6 +25,7 @@ function TreeNode({
   };
 
   const handleNodeSelect = () => {
+    setSelectedNode(node);
     setSelectedNodeId(node.id);
   };
 
@@ -123,6 +125,7 @@ function TreeNode({
             level={level + 1}
             selectedNodeId={selectedNodeId}
             setSelectedNodeId={setSelectedNodeId}
+            setSelectedNode={setSelectedNode}
             addLeafToNode={addLeafToNode}
           />
         ))}

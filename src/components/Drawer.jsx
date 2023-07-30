@@ -1,23 +1,13 @@
 import { useEffect, useState } from "react";
 import { HiChevronDoubleLeft, HiPlus } from "react-icons/hi";
 import { BiExpandAlt } from "react-icons/bi";
-import treeDataStructure from "../utils/treeDataStructure";
 import TreeNode from "./TreeNode";
 import { v4 as uuidv4 } from "uuid";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 
-function Drawer({ isDrawerOpen, setIsDrawerOpen }) {
+function Drawer({ tree, setTree, isDrawerOpen, setIsDrawerOpen, setSelectedNode }) {
   const [selectedNodeId, setSelectedNodeId] = useState(null);
-  const [tree, setTree] = useState(() => {
-    try {
-      const savedData = localStorage.getItem("treeData");
-      return savedData ? JSON.parse(savedData) : treeDataStructure;
-    } catch (error) {
-      console.error("Failed to load tree from local storage: ", error);
-      return treeDataStructure;
-    }
-  });
 
   useEffect(() => {
     try {
@@ -64,7 +54,7 @@ function Drawer({ isDrawerOpen, setIsDrawerOpen }) {
     <div
       className={
         isDrawerOpen
-          ? "h-[calc(100vh-125px)] flex-1 md:flex-[.35] lg:flex-[.20] bg-gray-50 pr-2 lg:px-"
+          ? "h-[calc(100vh-125px)] flex-1 md:flex-[.35] lg:flex-[.20] bg-gray-50 pr-2"
           : "hidden"
       }
     >
@@ -85,7 +75,7 @@ function Drawer({ isDrawerOpen, setIsDrawerOpen }) {
             </button>
           </div>
         </div>
-        <div className={"pl-2"}>
+        <div className={"pl-2 pb-2"}>
           {tree.map((node) => (
             <TreeNode
               key={node.id}
@@ -93,6 +83,7 @@ function Drawer({ isDrawerOpen, setIsDrawerOpen }) {
               level={0}
               setSelectedNodeId={setSelectedNodeId}
               selectedNodeId={selectedNodeId}
+              setSelectedNode={setSelectedNode}
               addLeafToNode={addLeafToNode}
             />
           ))}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   HiMenu,
   HiOutlineSearch,
@@ -9,7 +9,20 @@ import CustomAvatar from "./CustomAvatar";
 import UserOptionsDropdown from "./UserOptionsDropdown";
 
 function Header({ isDrawerOpen, setIsDrawerOpen }) {
-  const [userDropdownVisible, setUserDropdownVisible] = useState(true);
+  const [userDropdownVisible, setUserDropdownVisible] = useState(false);
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target))
+        setUserDropdownVisible(false);
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   const handleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
@@ -49,12 +62,16 @@ function Header({ isDrawerOpen, setIsDrawerOpen }) {
             </span>
           </div>
           <HiOutlineBell size={30} />
-          <div className="relative" onClick={handleUserDropdown}>
-            <CustomAvatar isNew={true} isOnline={true} name={"F L"} />
+          <div className="relative">
+            <button onClick={handleUserDropdown}>
+              <CustomAvatar isNew={true} isOnline={true} name={"F L"} />
+            </button>
             {userDropdownVisible && (
-              <UserOptionsDropdown
-                setUserDropdownVisible={setUserDropdownVisible}
-              />
+              <div ref={dropdownRef}>
+                <UserOptionsDropdown
+                  setUserDropdownVisible={setUserDropdownVisible}
+                />
+              </div>
             )}
           </div>
         </div>
