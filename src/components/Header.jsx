@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   HiMenu,
   HiOutlineSearch,
@@ -6,11 +6,18 @@ import {
   HiOutlineBell,
 } from "react-icons/hi";
 import CustomAvatar from "./CustomAvatar";
+import UserOptionsDropdown from "./UserOptionsDropdown";
 
-function Header({isDrawerOpen, setIsDrawerOpen}) {
+function Header({ isDrawerOpen, setIsDrawerOpen }) {
+  const [userDropdownVisible, setUserDropdownVisible] = useState(true);
   const handleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
+
+  const handleUserDropdown = () => {
+    setUserDropdownVisible(!userDropdownVisible);
+  };
+
   return (
     // <div className="max-w-sm mx-auto md:max-w-2xl lg:max-w-7xl">
     <div className="pr-2 lg:px-4 lg:pr-8">
@@ -42,7 +49,14 @@ function Header({isDrawerOpen, setIsDrawerOpen}) {
             </span>
           </div>
           <HiOutlineBell size={30} />
-          <CustomAvatar isNew={true} isOnline={true} name={"F L"} />
+          <div className="relative" onClick={handleUserDropdown}>
+            <CustomAvatar isNew={true} isOnline={true} name={"F L"} />
+            {userDropdownVisible && (
+              <UserOptionsDropdown
+                setUserDropdownVisible={setUserDropdownVisible}
+              />
+            )}
+          </div>
         </div>
       </div>
     </div>
