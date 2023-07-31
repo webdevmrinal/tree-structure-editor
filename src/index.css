@@ -7,3 +7,18 @@ body{
     width: 100vw;
     overflow: hidden;
 }
+
+@layer components {
+    .editor-space h2{
+        @apply text-3xl
+    }
+    .editor-space h3{
+        @apply text-2xl
+    }
+    .editor-space a{
+        @apply text-blue-500 underline
+    }
+    .editor-space blockquote,.editor-space blockquote span{
+        @apply pl-8 bg-gray-100 before:content-['“'] before:pr-1 after:content-['”'] after:pl-1
+    }
+}

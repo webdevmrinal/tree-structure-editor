@@ -17,25 +17,61 @@ const treeData = [
             id: uuidv4(),
             name: "Content Page",
             type: "leaf",
-            content: "Some content",
+            children: [
+              {
+                id: uuidv4(),
+                content: "<p>This is first content</p>",
+              },
+              {
+                id: uuidv4(),
+                content: "<p>This is second content</p>",
+              },
+            ],
           },
           {
             id: uuidv4(),
             name: "Quiz",
             type: "leaf",
-            content: "Some other content",
+            children: [
+              {
+                id: uuidv4(),
+                content: "<p>This is first content</p>",
+              },
+              {
+                id: uuidv4(),
+                content: "<p>This is second content</p>",
+              },
+            ],
           },
           {
             id: uuidv4(),
             name: "Videos",
             type: "leaf",
-            content: "Some other content",
+            children: [
+              {
+                id: uuidv4(),
+                content: "<p>This is first content</p>",
+              },
+              {
+                id: uuidv4(),
+                content: "<p>This is second content</p>",
+              },
+            ],
           },
           {
             id: uuidv4(),
             name: "WYSIWYG Editor",
             type: "leaf",
-            content: "Some other content",
+            children: [
+              {
+                id: uuidv4(),
+                content: "<p>This is first content</p>",
+              },
+              {
+                id: uuidv4(),
+                content: "<p>This is second content</p>",
+              },
+            ],
           },
           {
             id: uuidv4(),
@@ -46,7 +82,16 @@ const treeData = [
                 id: uuidv4(),
                 name: "Item Editor",
                 type: "leaf",
-                content: "Some other content",
+                children: [
+                  {
+                    id: uuidv4(),
+                    content: "<p>This is first content</p>",
+                  },
+                  {
+                    id: uuidv4(),
+                    content: "<p>This is second content</p>",
+                  },
+                ],
               },
             ],
           },
@@ -62,25 +107,61 @@ const treeData = [
             id: uuidv4(),
             name: "Content Page",
             type: "leaf",
-            content: "Some content",
+            children: [
+              {
+                id: uuidv4(),
+                content: "<p>This is first content</p>",
+              },
+              {
+                id: uuidv4(),
+                content: "<p>This is second content</p>",
+              },
+            ],
           },
           {
             id: uuidv4(),
             name: "Quiz",
             type: "leaf",
-            content: "Some other content",
+            children: [
+              {
+                id: uuidv4(),
+                content: "<p>This is first content</p>",
+              },
+              {
+                id: uuidv4(),
+                content: "<p>This is second content</p>",
+              },
+            ],
           },
           {
             id: uuidv4(),
             name: "Videos",
             type: "leaf",
-            content: "Some other content",
+            children: [
+              {
+                id: uuidv4(),
+                content: "<p>This is first content</p>",
+              },
+              {
+                id: uuidv4(),
+                content: "<p>This is second content</p>",
+              },
+            ],
           },
           {
             id: uuidv4(),
             name: "WYSIWYG Editor",
             type: "leaf",
-            content: "Some other content",
+            children: [
+              {
+                id: uuidv4(),
+                content: "<p>This is first content</p>",
+              },
+              {
+                id: uuidv4(),
+                content: "<p>This is second content</p>",
+              },
+            ],
           },
           {
             id: uuidv4(),
@@ -91,7 +172,16 @@ const treeData = [
                 id: uuidv4(),
                 name: "Item Editor",
                 type: "leaf",
-                content: "Some other content",
+                children: [
+                  {
+                    id: uuidv4(),
+                    content: "<p>This is first content</p>",
+                  },
+                  {
+                    id: uuidv4(),
+                    content: "<p>This is second content</p>",
+                  },
+                ],
               },
             ],
           },
@@ -109,13 +199,31 @@ const treeData = [
         id: uuidv4(),
         name: "collection2.1",
         type: "leaf",
-        content: "Even more content",
+        children: [
+          {
+            id: uuidv4(),
+            content: "<p>This is first content</p>",
+          },
+          {
+            id: uuidv4(),
+            content: "<p>This is second content</p>",
+          },
+        ],
       },
       {
         id: uuidv4(),
         name: "collection2.2",
         type: "leaf",
-        content: "And some more",
+        children: [
+          {
+            id: uuidv4(),
+            content: "<p>This is first content</p>",
+          },
+          {
+            id: uuidv4(),
+            content: "<p>This is second content</p>",
+          },
+        ],
       },
     ],
   },

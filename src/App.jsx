@@ -19,6 +19,27 @@ function App() {
     }
   });
 
+  const findNodeInTree = (nodeId, nodeArray = tree) => {
+    for (let node of nodeArray) {
+      if (node.id === nodeId) {
+        return node;
+      }
+      if (node.children) {
+        let foundNode = findNodeInTree(nodeId, node.children);
+        if (foundNode) return foundNode;
+      }
+    }
+    return null;
+  };
+
+  const updateNodeContent = (nodeId, newContent) => {
+    const nodeToUpdate = findNodeInTree(nodeId);
+    if (nodeToUpdate) {
+      nodeToUpdate.children = newContent;
+      setTree([...tree]);
+    }
+  };
+
   const findNodePath = (nodeId, nodeArray = tree, path = "") => {
     for (let node of nodeArray) {
       if (node.id === nodeId) {
@@ -53,6 +74,7 @@ function App() {
             node={selectedNode}
             isDrawerOpen={isDrawerOpen}
             selectedNodePath={selectedNodePath}
+            updateNodeContent={updateNodeContent}
           />
         )}
       </section>
