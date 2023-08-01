@@ -17,8 +17,10 @@ function TreeNode({
   setSelectedNodeId,
   addLeafToNode,
   setSelectedNode,
+  addContainerToNode,
 }) {
   const [isOpen, setIsOpen] = useState(node.isOpen);
+  const [isAddNodeMenuVisible, setIsAddNodeMenuVisible] = useState(false);
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
@@ -34,8 +36,31 @@ function TreeNode({
       id: uuidv4(),
       name: "New Leaf",
       type: "leaf",
+      children: [],
     };
     addLeafToNode(node.id, newLeaf);
+    setIsAddNodeMenuVisible(!isAddNodeMenuVisible);
+  };
+
+  const handleAddContainer = () => {
+    const containerCount = node.children.filter(
+      (child) => child.type === "container"
+    ).length;
+    const newContainer = {
+      id: uuidv4(),
+      type: "container",
+      name: `Container ${level + 1}.${
+        node.children.filter((child) => child.type === "container").length + 1
+      }`,
+      isOpen: false,
+      children: [],
+    };
+    addContainerToNode(node.id, newContainer);
+    setIsAddNodeMenuVisible(!isAddNodeMenuVisible);
+  };
+
+  const handleAddElement = () => {
+    setIsAddNodeMenuVisible(!isAddNodeMenuVisible);
   };
 
   const childIsSelected =
@@ -100,9 +125,27 @@ function TreeNode({
             <div className="select-none inline-block text-sm">{node.name}</div>
           </div>
           {node.type === "container" ? (
-            <div className="flex pr-2 opacity-0 group-hover:opacity-100">
+            <div className="flex pr-2 relative opacity-[0.000000001] group-hover:opacity-100">
+              {isAddNodeMenuVisible ? (
+                <div className="absolute -bottom-14 -left-10 z-10 flex flex-col gap-1 w-28 text-xs bg-gray-800 rounded-md overflow-hidden">
+                  <button
+                    onClick={handleAddLeaf}
+                    className="w-full hover:bg-gray-700 py-1"
+                  >
+                    <div className="text-gray-100 font-normal">Add Leaf</div>
+                  </button>
+                  <button
+                    onClick={handleAddContainer}
+                    className="w-full hover:bg-gray-700 py-1"
+                  >
+                    <div className="text-gray-100 font-normal">
+                      Add Container
+                    </div>
+                  </button>
+                </div>
+              ) : null}
               <Tippy content="Create Item">
-                <button className="px-2" onClick={handleAddLeaf}>
+                <button className="px-2" onClick={handleAddElement}>
                   <HiPlus color="#777" />
                 </button>
               </Tippy>
@@ -127,6 +170,7 @@ function TreeNode({
             setSelectedNodeId={setSelectedNodeId}
             setSelectedNode={setSelectedNode}
             addLeafToNode={addLeafToNode}
+            addContainerToNode={addContainerToNode}
           />
         ))}
     </div>

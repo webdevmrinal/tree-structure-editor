@@ -6,7 +6,13 @@ import { v4 as uuidv4 } from "uuid";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 
-function Drawer({ tree, setTree, isDrawerOpen, setIsDrawerOpen, setSelectedNode }) {
+function Drawer({
+  tree,
+  setTree,
+  isDrawerOpen,
+  setIsDrawerOpen,
+  setSelectedNode,
+}) {
   const [selectedNodeId, setSelectedNodeId] = useState(null);
 
   useEffect(() => {
@@ -50,6 +56,20 @@ function Drawer({ tree, setTree, isDrawerOpen, setIsDrawerOpen, setSelectedNode 
     setTree([...tree]);
   };
 
+  const addContainerToNode = (nodeId, newContainer, nodeArray = tree) => {
+    for (let node of nodeArray) {
+      if (node.id === nodeId && node.type === "container") {
+        if (!node.children) node.children = [];
+        node.children.push(newContainer);
+        setTree([...tree]);
+        return;
+      }
+      if (node.children) {
+        addContainerToNode(nodeId, newContainer, node.children);
+      }
+    }
+  };
+
   return (
     <div
       className={
@@ -85,6 +105,7 @@ function Drawer({ tree, setTree, isDrawerOpen, setIsDrawerOpen, setSelectedNode 
               selectedNodeId={selectedNodeId}
               setSelectedNode={setSelectedNode}
               addLeafToNode={addLeafToNode}
+              addContainerToNode={addContainerToNode}
             />
           ))}
         </div>
